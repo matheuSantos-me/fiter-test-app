@@ -85,7 +85,7 @@ export default function HomePage() {
                 id=""
                 name=""
                 authors={[]}
-                imagelink=""
+                imageLink=""
                 description=""
                 createdat={new Date()}
                 publishedat={new Date()}
