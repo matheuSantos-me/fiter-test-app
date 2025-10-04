@@ -2,7 +2,6 @@
 
 import { useEffect, useState, use } from "react";
 import Image from "next/image";
-import { notFound } from "next/navigation";
 
 import HTTPClient from "@/server";
 
@@ -59,14 +58,20 @@ export default function BookDetailPage({
     );
   }
 
-  if (!book) return notFound();
+  if (!book) {
+    return (
+      <p className="text-center text-gray-500 mt-8 text-lg">
+        Livro não encontrado.
+      </p>
+    );
+  }
 
   return (
     <div className="max-w-5xl mx-auto p-6">
       <div className="flex flex-col md:flex-row gap-8">
         <div className="relative w-60 h-80 mx-auto md:mx-0 flex-shrink-0">
           <Image
-            src={book.imagelink}
+            src={book.imageLink?.replace(/[\]\s]+$/, "")}
             alt={`Capa do livro ${book.name}`}
             fill
             priority

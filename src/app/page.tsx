@@ -27,20 +27,24 @@ export default function HomePage() {
       setHasMorePage(data.hasMore);
       setBooks(data.data);
     } catch (e) {
+      setBooks([])
+
       console.log(e, "error");
     } finally {
       setLoading(false);
     }
   };
-
+  
   const listBooksSearch = async () => {
     try {
       const { data }: { data: { data: BookProps[] } } = await HTTPClient.get(
         `/books/search?text=${search}`
       );
-
+      
       setBooks(data.data);
     } catch (e) {
+      setBooks([])
+
       console.log(e, "error");
     } finally {
       setLoading(false);
@@ -99,7 +103,7 @@ export default function HomePage() {
         </p>
       )}
 
-      <div className="flex justify-center gap-2 mt-6">
+      {books.length ? <div className="flex justify-center gap-2 mt-6">
         <button
           disabled={page === 1}
           onClick={() => setPage((p) => p - 1)}
@@ -117,7 +121,7 @@ export default function HomePage() {
         >
           Próxima
         </button>
-      </div>
+      </div> : <></>}
     </div>
   );
 }

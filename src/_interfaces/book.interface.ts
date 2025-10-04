@@ -3,7 +3,7 @@ export interface BookProps {
   createdat: Date;
   description: string;
   id: string;
-  imagelink: string;
+  imageLink: string;
   name: string;
   publishedat: Date;
   searchable: string;
