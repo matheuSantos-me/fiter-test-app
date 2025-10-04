@@ -45,7 +45,7 @@ export default function BookCard({
       <div className="border rounded-lg shadow-md p-4 hover:shadow-lg transition cursor-pointer flex flex-col gap-4 h-full">
         <div className="relative w-full h-52 flex items-center justify-center bg-gray-100 rounded">
           <Image
-            src={imagelink.replace(/[\]\s]+$/, "")}
+            src={imagelink}
             alt={`Capa do livro ${name}`}
             fill
             className="object-cover rounded"

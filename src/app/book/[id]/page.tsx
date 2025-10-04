@@ -66,7 +66,7 @@ export default function BookDetailPage({
       <div className="flex flex-col md:flex-row gap-8">
         <div className="relative w-60 h-80 mx-auto md:mx-0 flex-shrink-0">
           <Image
-            src={book.imagelink.replace(/[\]\s]+$/, "") || "/placeholder.png"}
+            src={book.imagelink}
             alt={`Capa do livro ${book.name}`}
             fill
             priority
